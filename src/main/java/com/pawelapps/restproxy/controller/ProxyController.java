@@ -17,7 +17,7 @@ public class ProxyController {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping("/**")
+    @GetMapping("/getFile")
     public ResponseEntity<?> getFile(HttpServletRequest request, @RequestHeader HttpHeaders headers) {
         String backendUrl = "https://picsum.photos/200";
 
