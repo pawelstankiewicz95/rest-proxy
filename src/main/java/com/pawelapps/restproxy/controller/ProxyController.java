@@ -17,6 +17,13 @@ public class ProxyController {
         this.restTemplate = restTemplate;
     }
 
+    @GetMapping("/getJson")
+    public ResponseEntity<?> getJson(HttpServletRequest request) {
+        String backendUrl = "https://jsonplaceholder.typicode.com/posts/1";
+        ResponseEntity<String> response = restTemplate.getForEntity(backendUrl, String.class);
+        return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+    }
+
     @GetMapping("/getFile")
     public ResponseEntity<?> getFile(HttpServletRequest request, @RequestHeader HttpHeaders headers) {
         String backendUrl = "https://picsum.photos/200";
